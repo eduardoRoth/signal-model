@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-title>Two way binding</ion-title>
+  </ion-toolbar>
+  <ion-toolbar color="light">
+    <ion-title>{{ parentTitle }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <app-before-child
+      [(title)]="parentTitle"
+      (titleChange)="changeEvent($event)"
+    />
+  </ion-card>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-button expand="block" routerLink="/signal">
+          Go to Signal version
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

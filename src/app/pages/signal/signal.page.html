@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-title>Signal binding</ion-title>
+  </ion-toolbar>
+  <ion-toolbar color="light">
+    <ion-title>{{ parentTitle() }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <app-signal-child
+      [(title)]="parentTitle"
+      (titleChange)="changeEvent($event)"
+    />
+  </ion-card>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-button expand="block" routerLink="/previous"> Go back </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
