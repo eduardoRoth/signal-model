@@ -3,16 +3,18 @@
     <ion-title>Signal binding</ion-title>
   </ion-toolbar>
   <ion-toolbar color="light">
-    <ion-title>{{ parentTitle() }}</ion-title>
+    <ion-title>{{ parentTitle() }} </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-card>
-    <app-signal-child
-      [(title)]="parentTitle"
-      (titleChange)="changeEvent($event)"
-    />
+    <ion-icon
+      size="large"
+      [color]="checkmark() ? 'success' : 'danger'"
+      [name]="checkmark() ? 'checkmark-circle-outline' : 'close-circle-outline'"
+    ></ion-icon>
+    <app-signal-child [(title)]="parentTitle" [(readOnlyInput)]="checkmark" />
   </ion-card>
 
   <ion-grid>

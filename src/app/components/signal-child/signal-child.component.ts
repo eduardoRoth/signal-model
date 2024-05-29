@@ -1,8 +1,9 @@
-import { Component, model } from '@angular/core';
+import { Component, input, model } from '@angular/core';
 import {
   IonCardHeader,
   IonCardSubtitle,
   IonCardTitle,
+  IonCheckbox,
   IonInput,
   IonItem,
   IonLabel,
@@ -20,6 +21,7 @@ import { FormsModule } from '@angular/forms';
     IonCardHeader,
     IonCardTitle,
     IonCardSubtitle,
+    IonCheckbox,
   ],
   template: `
     <ion-card-header>
@@ -34,13 +36,16 @@ import { FormsModule } from '@angular/forms';
         labelPlacement="stacked"
         type="text"
         placeholder="Enter a title"
-        [ngModel]="title()"
-        (ngModelChange)="title.set($event)"
+        [(ngModel)]="title"
       />
+    </ion-item>
+    <ion-item>
+      <ion-checkbox [(ngModel)]="readOnlyInput"></ion-checkbox>
     </ion-item>
   `,
   styles: ``,
 })
 export class SignalChildComponent {
+  readOnlyInput = model.required<boolean>();
   title = model.required<string>();
 }

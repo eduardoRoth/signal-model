@@ -11,12 +11,15 @@ import {
   IonContent,
   IonGrid,
   IonHeader,
+  IonIcon,
   IonRow,
   IonTitle,
   IonToolbar,
 } from '@ionic/angular/standalone';
 import { RouterLink } from '@angular/router';
 import { SignalChildComponent } from '../../components/signal-child/signal-child.component';
+import { addIcons } from 'ionicons';
+import { checkmarkCircleOutline, closeCircleOutline } from 'ionicons/icons';
 
 @Component({
   selector: 'app-signal',
@@ -40,11 +43,18 @@ import { SignalChildComponent } from '../../components/signal-child/signal-child
     IonButton,
     RouterLink,
     SignalChildComponent,
+    IonIcon,
   ],
 })
 export class SignalPage {
-  parentTitle = signal<string>('TITLE');
-  constructor() {}
+  parentTitle = signal<string>('');
+  checkmark = signal<boolean>(false);
+  constructor() {
+    addIcons({
+      checkmarkCircleOutline,
+      closeCircleOutline,
+    });
+  }
 
   changeEvent(title: string) {
     console.log(`Signal: ${title}`);
